@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="description" content="Kris Curman - Technical Product Manager application for MailerLite: six answers, one reel, nine years on the shop floor.">
+<title>Kris Curman</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+:root{
+  --ink:#0A0F14; --ink-2:#111820; --line:#1F2A37;
+  --green:#3DDC97; --green-deep:#078A4D; --paper:#E8ECEF; --paper-2:#D9DFE4;
+  --text:#F2F5F7; --muted:#AAB4BE; --on-green:#07110C;
+  --display:'Anton', 'Bahnschrift', 'Arial Narrow', Impact, sans-serif;
+  --body:'Barlow', 'Segoe UI', system-ui, sans-serif;
+  --mono:'JetBrains Mono', Consolas, monospace;
+  --gutter:clamp(16px, 5vw, 72px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:var(--text);font-family:var(--body);font-size:18px;line-height:1.55;overflow-x:hidden}
+a{color:inherit}
+h1,h2,h3{margin:0;font-family:var(--display);font-weight:400;line-height:.92;letter-spacing:.005em;text-transform:uppercase;text-wrap:balance}
+p{margin:0}
+img,video{max-width:100%;display:block}
+.eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--green)}
+.on-green .eyebrow{color:var(--green-deep)}
+.wrap{padding-inline:var(--gutter);max-width:1440px;margin-inline:auto}
+
+/* progress + top bar */
+#progress{position:fixed;left:0;top:env(safe-area-inset-top,0px);height:4px;width:0;background:var(--green);z-index:60;pointer-events:none}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px var(--gutter);background:rgba(10,15,20,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.bar .name{font-family:var(--display);font-size:20px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;display:flex;align-items:center;gap:10px}
+.bar .name i{width:10px;height:10px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(61,220,151,.6);animation:pulse 2.2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(61,220,151,.55)}70%{box-shadow:0 0 0 12px rgba(61,220,151,0)}100%{box-shadow:0 0 0 0 rgba(61,220,151,0)}}
+.bar nav{display:flex;gap:22px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.bar nav a{text-decoration:none;color:var(--muted);transition:color .2s}
+.bar nav a:hover,.bar nav a:focus-visible{color:var(--green);outline:none}
+@media (max-width:720px){.bar nav a:not(.keep){display:none}}
+
+/* hero */
+.hero{position:relative;isolation:isolate;overflow:hidden;padding-block:clamp(56px,9vw,120px) clamp(48px,7vw,96px)}
+.hero video.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;filter:saturate(1.1) contrast(1.05)}
+.hero .veil{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(10,15,20,.96) 0%,rgba(10,15,20,.88) 45%,rgba(10,15,20,.55) 100%)}
+.hero .grid{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(24px,4vw,64px);align-items:center}
+.hero h1{font-size:clamp(64px,11vw,176px)}
+.hero h1 .line{display:block;overflow:hidden}
+.hero h1 .line span{display:block;transform:translateY(0);animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+.hero h1 .line:nth-child(2) span{animation-delay:.12s;color:var(--green)}
+@keyframes rise{from{transform:translateY(110%)}to{transform:translateY(0)}}
+.hero .lede{max-width:56ch;font-size:clamp(18px,1.6vw,22px);color:var(--muted);margin-top:22px;animation:fade .8s .5s both}
+@keyframes fade{from{opacity:.001;transform:translateY(12px)}to{opacity:1;transform:none}}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px;animation:fade .8s .7s both}
+.btn{--bg:var(--green);--fg:var(--on-green);position:relative;display:inline-flex;align-items:center;gap:10px;padding:16px 26px;border-radius:999px;background:var(--bg);color:var(--fg);font-weight:600;text-decoration:none;font-size:16px;letter-spacing:.02em;border:2px solid var(--bg);transition:transform .25s cubic-bezier(.2,.8,.2,1),background .2s,color .2s;will-change:transform}
+.btn.ghost{--bg:transparent;--fg:var(--text);border-color:var(--line)}
+.btn:hover,.btn:focus-visible{outline:none;transform:translateY(-2px)}
+.btn.ghost:hover{border-color:var(--green);color:var(--green)}
+.portrait{position:relative;justify-self:end;width:min(100%,460px);aspect-ratio:4/5;border-radius:24px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.55);animation:fade 1s .3s both}
+.portrait img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);will-change:transform}
+.portrait .tag{position:absolute;left:16px;bottom:16px;background:var(--ink);color:var(--text);font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:10px 14px;border-radius:8px;border:1px solid var(--line)}
+.blob{position:absolute;width:52vw;height:52vw;max-width:720px;max-height:720px;border-radius:50%;background:radial-gradient(circle,rgba(61,220,151,.28),rgba(61,220,151,0) 62%);right:-10vw;top:-10vw;z-index:-1;pointer-events:none;filter:blur(20px)}
+@media (max-width:860px){.hero .grid{grid-template-columns:1fr}.portrait{justify-self:start;width:min(100%,360px)}}
+
+/* marquee */
+.marquee{--bg:var(--green);--fg:var(--on-green);background:var(--bg);color:var(--fg);overflow:hidden;white-space:nowrap;padding-block:16px;font-family:var(--display);text-transform:uppercase;font-size:clamp(26px,3.6vw,52px);letter-spacing:.02em;position:relative;z-index:2}
+.marquee.tilt{transform:rotate(-1.6deg) scale(1.03);margin-block:-8px 12px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.marquee.paper{--bg:var(--paper);--fg:var(--ink)}
+.marquee .track{display:inline-flex;gap:0;animation:scroll 34s linear infinite;will-change:transform}
+.marquee.rev .track{animation-direction:reverse}
+.marquee span{padding-inline:22px}
+.marquee b{font-weight:400;color:var(--green-deep)}
+.marquee.paper b{color:var(--green-deep)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.marquee:hover .track{animation-play-state:paused}
+
+/* sections */
+section.block{padding-block:clamp(64px,9vw,140px);position:relative}
+.on-green{background:var(--green);color:var(--on-green)}
+.on-paper{background:var(--paper);color:var(--ink)}
+.on-ink2{background:var(--ink-2)}
+.head{display:grid;grid-template-columns:auto 1fr;gap:clamp(16px,3vw,48px);align-items:end;margin-bottom:clamp(28px,4vw,56px)}
+.head h2{font-size:clamp(44px,7.5vw,120px)}
+.head .num{font-family:var(--mono);font-size:13px;letter-spacing:.18em;padding-bottom:10px;color:var(--green)}
+.on-green .head .num,.on-paper .head .num{color:var(--green-deep)}
+
+/* numbers */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.stat{background:var(--ink);padding:clamp(24px,3vw,40px);transition:background .25s}
+.stat:hover{background:var(--ink-2)}
+.stat .n{font-family:var(--display);font-size:clamp(56px,7vw,104px);line-height:1;color:var(--green);font-variant-numeric:tabular-nums}
+.stat .n small{font-size:.45em;color:var(--text);margin-left:6px}
+.stat p{color:var(--muted);margin-top:8px;max-width:30ch}
+
+/* reel */
+.reel{display:grid;grid-template-columns:1fr 1.35fr;gap:clamp(24px,4vw,64px);align-items:center}
+.reel h2{font-size:clamp(48px,7vw,112px)}
+.reel p{margin-top:16px;color:var(--muted);max-width:44ch}
+.player{position:relative;border-radius:22px;overflow:hidden;background:#000;box-shadow:0 30px 80px rgba(0,0,0,.5);aspect-ratio:16/9;max-width:100%}
+.player video{width:100%;height:100%;object-fit:cover}
+.player .play{position:absolute;inset:0;margin:auto;width:96px;height:96px;border-radius:50%;border:0;background:var(--green);color:var(--on-green);font-size:34px;cursor:pointer;display:grid;place-items:center;transition:transform .25s;box-shadow:0 10px 40px rgba(61,220,151,.45)}
+.player .play:hover{transform:scale(1.08)}
+.player.playing .play{display:none}
+@media (max-width:900px){.reel{grid-template-columns:1fr}}
+
+/* questions */
+.q{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(24px,5vw,96px);align-items:start}
+.q h2{font-size:clamp(40px,5.6vw,88px);position:sticky;top:calc(env(safe-area-inset-top,0px) + 88px)}
+.q .num{font-family:var(--mono);font-size:13px;letter-spacing:.18em;margin-bottom:14px;display:block}
+.answer{display:grid;gap:18px;font-size:clamp(18px,1.45vw,21px);max-width:62ch}
+.on-green .answer{color:#0d1a13}
+.on-paper .answer{color:#1a232c}
+.q .num{color:var(--green)}.on-green .q .num,.on-paper .q .num{color:var(--green-deep)}
+@media (max-width:900px){.q{grid-template-columns:1fr}.q h2{position:static}}
+
+/* reveal */
+.rv{transform:translateY(28px);opacity:.35;transition:transform .9s cubic-bezier(.2,.8,.2,1),opacity .9s}
+.rv.in{transform:none;opacity:1}
+
+/* photo strip */
+.strip{overflow:hidden;padding-block:clamp(40px,6vw,80px);background:var(--ink-2)}
+.strip .row{display:flex;gap:16px;width:max-content;will-change:transform}
+.strip figure{margin:0;width:clamp(240px,32vw,460px);aspect-ratio:4/3;border-radius:16px;overflow:hidden;flex:none;transform:rotate(var(--r,0deg));transition:transform .4s}
+.strip figure:hover{transform:rotate(0) scale(1.03)}
+.strip img{width:100%;height:100%;object-fit:cover}
+
+/* built cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.card{background:var(--ink);color:var(--text);border:1px solid var(--line);border-radius:18px;padding:26px;min-height:220px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .3s;will-change:transform}
+.card:hover{transform:translateY(-8px) rotate(-.6deg);border-color:var(--green)}
+.card h3{font-size:clamp(28px,2.6vw,40px);text-transform:none;letter-spacing:.01em}
+.card p{color:var(--muted);font-size:16px}
+.card .chip{align-self:flex-start;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;background:var(--green);color:var(--on-green);padding:6px 10px;border-radius:6px}
+
+/* closing */
+.close{text-align:left;position:relative;overflow:hidden}
+.close h2{font-size:clamp(72px,14vw,220px);line-height:.85}
+.close .row{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:34px}
+.close .mono{font-family:var(--mono);font-size:14px;letter-spacing:.1em;color:var(--muted)}
+footer{padding:28px var(--gutter) calc(28px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between;font-size:14px;color:var(--muted)}
+footer a{color:var(--muted)}
+#glow{position:fixed;left:0;top:0;width:520px;height:520px;border-radius:50%;pointer-events:none;z-index:1;background:radial-gradient(circle,rgba(61,220,151,.14),rgba(61,220,151,0) 60%);transform:translate(-50%,-50%);mix-blend-mode:screen;opacity:0;transition:opacity .4s}
+.totop{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:40;width:52px;height:52px;border-radius:50%;background:var(--green);color:var(--on-green);border:0;font-size:22px;cursor:pointer;opacity:0;transform:translateY(12px);transition:opacity .3s,transform .3s;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.totop.show{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  .marquee .track,.hero h1 .line span,.hero .lede,.cta,.portrait,.bar .name i{animation:none!important}
+  .rv{transform:none;opacity:1;transition:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<div id="progress" aria-hidden="true"></div>
+<div id="glow" aria-hidden="true"></div>
+
+<header class="bar">
+  <a class="name" href="#top"><i aria-hidden="true"></i>Kris Curman</a>
+  <nav aria-label="Sections">
+    <a href="#numbers">Numbers</a>
+    <a href="#reel">Reel</a>
+    <a href="#answers">Answers</a>
+    <a href="#built">Built in 2026</a>
+    <a class="keep" href="https://www.linkedin.com/in/kristofer-c-7400b7115" target="_blank" rel="noopener">LinkedIn ↗</a>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <video class="bg" autoplay muted loop playsinline preload="metadata" poster="img/poster.jpg" aria-hidden="true">
+    <source src="media/hero-loop.mp4" type="video/mp4">
+  </video>
+  <div class="veil" aria-hidden="true"></div>
+  <div class="blob" aria-hidden="true"></div>
+  <div class="wrap grid">
+    <div>
+      <p class="eyebrow">Technical Product Manager · MailerLite application</p>
+      <h1 style="margin-top:14px">
+        <span class="line"><span>Hi, I'm</span></span>
+        <span class="line"><span>Kris.</span></span>
+      </h1>
+      <p class="lede">Nine years running a collision repair shop, then this year building the internal tools that run an engineering firm with Claude Code. I want to do that work full time, on a platform other teams depend on.</p>
+      <div class="cta">
+        <a class="btn magnet" href="#answers">Read my answers</a>
+        <a class="btn ghost magnet" href="#reel">Watch the 60-second reel</a>
+      </div>
+    </div>
+    <div class="portrait" data-parallax="0.12">
+      <img src="img/kris.jpg" alt="Portrait of Kris Curman" width="1000" height="1000">
+      <span class="tag">Vancouver, BC</span>
+    </div>
+  </div>
+</section>
+
+<div class="marquee tilt" aria-hidden="true">
+  <div class="track" data-marquee>
+    <span>Nine years on the shop floor</span><b>✦</b><span>$800K to $2.9M</span><b>✦</b><span>PMP</span><b>✦</b><span>BBA</span><b>✦</b><span>Claude Code</span><b>✦</b><span>MCP</span><b>✦</b><span>Vancouver, BC</span><b>✦</b><span>ASHL hockey</span><b>✦</b>
+  </div>
+</div>
+
+<section class="block" id="numbers">
+  <div class="wrap">
+    <div class="head rv"><span class="num">By the numbers</span><h2>What the last decade adds up to</h2></div>
+    <div class="stats rv">
+      <div class="stat"><div class="n"><span data-count="9">0</span><small>years</small></div><p>Running CARSTAR Vancouver, with a team that grew from 6 to 12.</p></div>
+      <div class="stat"><div class="n">+<span data-count="250">0</span><small>%</small></div><p>Annual sales, $800K to $2.9M over nine years.</p></div>
+      <div class="stat"><div class="n"><span data-count="3">0</span><small>of 500</small></div><p>Where the shop ranked among BC collision facilities on ICBC KPI metrics, 2021.</p></div>
+      <div class="stat"><div class="n"><span data-count="865">0</span><small>/ 0</small></div><p>Drive file operations / failures when we moved Rstruct's quote pipeline into the CRM, tested on a copy first.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block on-paper" id="reel">
+  <div class="wrap reel">
+    <div class="rv">
+      <p class="eyebrow">62 seconds</p>
+      <h2 style="margin-top:12px">Who I am, in one reel.</h2>
+      <p>Nine years on the shop floor, the tools I built in 2026, and one hockey goal. Sound on.</p>
+    </div>
+    <div class="player rv" id="player">
+      <video id="reelvid" playsinline preload="metadata" poster="img/poster.jpg" controls>
+        <source src="media/reel.mp4" type="video/mp4">
+      </video>
+      <button class="play" id="playbtn" aria-label="Play the reel">▶</button>
+    </div>
+  </div>
+</section>
+
+<div class="marquee paper rev" aria-hidden="true" style="background:var(--ink);color:var(--text)">
+  <div class="track" data-marquee>
+    <span>Six questions</span><b>✦</b><span>Real answers</span><b>✦</b><span>No CV</span><b>✦</b><span>Built with Claude Code and MCP</span><b>✦</b><span>Scroll</span><b>✦</b>
+  </div>
+</div>
+
+<div id="answers"></div>
+
+<section class="block on-ink2">
+  <div class="wrap q">
+    <div class="rv"><span class="num">Question 1 of 6</span><h2>Three high-impact features, one release. How do I decide?</h2></div>
+    <div class="answer rv">
+      <p>I start with what happens if we don't ship each one: who is blocked, who is losing money, and who is only mildly inconvenienced. Something that unblocks other teams or stops a real loss usually beats something that is nice to have.</p>
+      <p>Next I look at cost and risk. If two options are close, I take the one we can ship small, measure, and roll back if it's wrong.</p>
+      <p>A recent example: when I moved Rstruct's quote-to-project pipeline off Google Apps Script and into our CRM, the biggest risk was losing client files. So we built and tested against a copy of the Drive folder tree first and kept the old scripts running until we were ready to switch. The merge ran 865 file operations with zero failures.</p>
+      <p>Whatever I choose, I write down why and tell the people whose feature is waiting.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block on-green">
+  <div class="wrap q">
+    <div class="rv"><span class="num">Question 2 of 6</span><h2>Trust &amp; safety, fraud and abuse prevention</h2></div>
+    <div class="answer rv">
+      <p>Not in a dedicated trust &amp; safety or fraud role, so I won't pretend otherwise. The closest I've come is protecting client and financial data in the tools I run at Rstruct.</p>
+      <p>Before our CRM went online I had it audited, and we fixed SQL injection, mass-assignment and email-escaping holes. I turned off public sign-up, switched to invite-only accounts with one-time set-password links, and restricted access by tab, enforced on the server, so staff can't reach payroll or SIN data. API keys can be entered but never read back. Backups run nightly to three separate places.</p>
+      <p>I've also caught the quieter problems: our report generator was reachable online with no login, one client's report data was leaking into another's, and internal notes were showing up on a client quote. Each one was fixed at the root.</p>
+      <p>The abuse side of email sending is new to me, and it's one of the parts of this role I'd most like to learn.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap q">
+    <div class="rv"><span class="num">Question 3 of 6</span><h2>How I use AI in my own product work</h2></div>
+    <div class="answer rv">
+      <p>Claude Code is my main tool. I've used it to build and run Rstruct's CRM (hosted on AWS, deployed from GitHub), our quote pipeline in Google Apps Script, a depreciation report builder, and a daily-log app for the service advisors at a VW dealership. I don't write the code by hand. I write the requirements, make the product calls, and test the results.</p>
+      <p>The most useful thing I've learned is to give it rules the way you'd give a team acceptance criteria. After a change looked done but wasn't visible to users, I made it a rule that nothing is done until the result is checked where the user sees it. I also defined what a test means for our pipeline: a baseline snapshot, expected results written down first, then a diff.</p>
+      <p>I connect it to real systems through MCP: Chrome, Google Drive, Gmail, and MailerLite's own connector. I've used multi-agent runs for research, including 112 agents on Canadian tax and accounting rules for our payroll module. Inside our products, AI reads receipts and bank statements in the CRM and turns pasted dealership screens into structured jobs. I also use ChatGPT and Gemini.</p>
+      <p>Full disclosure: I built this page the same way. Claude drove the editor, cut the reel with ffmpeg, and helped me draft from my own history, and I made the calls.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block on-paper">
+  <div class="wrap q">
+    <div class="rv"><span class="num">Question 4 of 6</span><h2>Working with platform and infrastructure teams</h2></div>
+    <div class="answer rv">
+      <p>Not with a dedicated platform team inside a large company. At Rstruct I've been the product owner for the internal platform the rest of the firm runs on.</p>
+      <p>That's the CRM (opportunities, projects, documents in Google Drive, Gmail and Calendar sync, accounting and payroll) plus the tools plugged into it. Our engineer Melvin built the report generator and the financial model. We split each into its own private repo so it could be maintained independently, and wrote a contract document that defines how the CRM embeds them: hosting, the embed API, storage, and what triggers a sync. Each piece can change without breaking the others.</p>
+      <p>I'm involved end to end: I set the requirements, make the trade-offs, test, and own the infrastructure decisions, like deploying from GitHub with a database backup before every update. I haven't worked alongside an SRE team yet, and I'd welcome it.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block on-ink2">
+  <div class="wrap q">
+    <div class="rv"><span class="num">Question 5 of 6</span><h2>My product discovery process</h2></div>
+    <div class="answer rv">
+      <p>I haven't done formal user research inside a product org. My habit is to start from what people already use.</p>
+      <p>When I built the daily-log app for the service advisors at the VW dealership where I worked, I started from their actual Excel log, screenshots of the dealership's system, and their process spreadsheets. Then we iterated in quick rounds of screenshots and fixes until it matched how the service desk really works.</p>
+      <p>I also talk to clients directly. At Strata Engineering I was the main client contact and presented to strata councils. At Rstruct I grew our depreciation-report work through an email campaign and LinkedIn outreach, and the quote-request email asks for exactly what we need to price a job: strata number, address and number of units.</p>
+      <p>To make sure I'm building for the right audience, I ask who will use it every day, and I get it in front of them as early as I can.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block on-green">
+  <div class="wrap q">
+    <div class="rv"><span class="num">Question 6 of 6</span><h2>Something that sparks joy</h2></div>
+    <div class="answer rv">
+      <p>Motorcycles, hockey and cooking. I've ridden across North America on a motorcycle, I play ASHL league hockey, and I'm slowly working through the Red Seal carpentry textbooks for fun.</p>
+      <p>The goal in the reel above is mine. Watch it with the sound on.</p>
+    </div>
+  </div>
+</section>
+
+<div class="strip" aria-label="Photos from the shop floor">
+  <div class="row" data-drift>
+    <figure style="--r:-1.5deg"><img src="img/shop1.jpg" alt="Diagnostic scanner reading fault codes on a Mazda CX-30" loading="lazy"></figure>
+    <figure style="--r:1deg"><img src="img/shop4.jpg" alt="Measuring a Lexus engine bay with a tram gauge" loading="lazy"></figure>
+    <figure style="--r:-.8deg"><img src="img/shop2.jpg" alt="Shop floor, CARSTAR Vancouver" loading="lazy"></figure>
+    <figure style="--r:1.4deg"><img src="img/shop5.jpg" alt="Structural repair with weld-through primer" loading="lazy"></figure>
+    <figure style="--r:-1.2deg"><img src="img/shop3.jpg" alt="Front-end structural repair in progress" loading="lazy"></figure>
+    <figure style="--r:.9deg"><img src="img/shop6.jpg" alt="Parts and materials shelf" loading="lazy"></figure>
+  </div>
+</div>
+
+<section class="block" id="built">
+  <div class="wrap">
+    <div class="head rv"><span class="num">2026</span><h2>Built the tools that run a firm</h2></div>
+    <div class="cards rv">
+      <article class="card"><span class="chip">CRM</span><div><h3>Rstruct CRM</h3><p>Opportunities, projects, Drive documents, Gmail and Calendar sync, accounting and payroll. On AWS, deployed from GitHub, backed up nightly to three places.</p></div></article>
+      <article class="card"><span class="chip">Pipeline</span><div><h3>Quote pipeline</h3><p>Parses quote PDFs, builds the Drive folder tree, keeps the status sheet in sync and archives completed jobs by invoice date. Migrated into the CRM with 865 ops, zero failures.</p></div></article>
+      <article class="card"><span class="chip">Reports</span><div><h3>Report builder</h3><p>Depreciation reports for BC strata corporations from a 407-component database, with funding scenarios. Every claim cited; reviewed by a P.Eng.</p></div></article>
+      <article class="card"><span class="chip">Dealership</span><div><h3>Service-advisor daily log</h3><p>Built for the OpenRoad VW service desk from their real Excel log and screens. AI intake turns pasted ERP text into structured jobs.</p></div></article>
+    </div>
+    <p class="rv" style="margin-top:22px;color:var(--muted)">All of it with Claude Code and MCP. I set the requirements, make the calls and test the result.</p>
+  </div>
+</section>
+
+<div class="marquee paper" aria-hidden="true">
+  <div class="track" data-marquee>
+    <span>Requirements</span><b>✦</b><span>Trade-offs</span><b>✦</b><span>Testing</span><b>✦</b><span>Shipping</span><b>✦</b><span>Requirements</span><b>✦</b><span>Trade-offs</span><b>✦</b><span>Testing</span><b>✦</b><span>Shipping</span><b>✦</b>
+  </div>
+</div>
+
+<section class="block close" id="talk">
+  <div class="wrap">
+    <p class="eyebrow rv">Thanks for reading</p>
+    <h2 class="rv" style="margin-top:14px">Let's<br>talk.</h2>
+    <p class="rv" style="max-width:52ch;margin-top:22px;color:var(--muted);font-size:20px">If this sounds like someone your platform team could use, I'd love to hear from you.</p>
+    <div class="row rv">
+      <a class="btn magnet" href="https://www.linkedin.com/in/kristofer-c-7400b7115" target="_blank" rel="noopener">Connect on LinkedIn ↗</a>
+      <span class="mono">linkedin.com/in/kristofer-c-7400b7115</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>Kris Curman · Vancouver, BC</span>
+  <span>Built with Claude Code and ffmpeg. Reel music: "Hustle" by Kevin MacLeod (<a href="https://incompetech.com" target="_blank" rel="noopener">incompetech.com</a>), CC BY 4.0.</span>
+</footer>
+<button class="totop" id="totop" aria-label="Back to top">↑</button>
+
+<script>
+(function(){
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // marquee: duplicate track content so the loop is seamless
+  document.querySelectorAll('[data-marquee]').forEach(t=>{ t.innerHTML += t.innerHTML; });
+  // reveal + counters
+  const io = new IntersectionObserver(es=>{
+    es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); e.target.querySelectorAll('[data-count]').forEach(count); io.unobserve(e.target);} });
+  },{threshold:.18});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+  function count(el){
+    if(el.dataset.done) return; el.dataset.done=1;
+    const end=+el.dataset.count, t0=performance.now(), dur=reduce?0:1400;
+    (function step(now){ const p=dur?Math.min(1,(now-t0)/dur):1; const e=1-Math.pow(1-p,3); el.textContent=Math.round(end*e); if(p<1) requestAnimationFrame(step); })(t0);
+  }
+  // progress bar, parallax, photo drift, back-to-top
+  const prog=document.getElementById('progress'), totop=document.getElementById('totop');
+  const par=[...document.querySelectorAll('[data-parallax]')], drift=document.querySelector('[data-drift]');
+  function onScroll(){
+    const y=scrollY, h=document.documentElement.scrollHeight-innerHeight;
+    prog.style.width=(h?y/h*100:0)+'%';
+    totop.classList.toggle('show', y>800);
+    if(!reduce){
+      par.forEach(el=>{ const r=el.getBoundingClientRect(); const c=(r.top+r.height/2-innerHeight/2)/innerHeight; el.querySelector('img').style.transform=`scale(1.08) translateY(${c*-40}px)`; });
+      if(drift){ const r=drift.parentElement.getBoundingClientRect(); const c=(r.top+r.height/2-innerHeight/2)/innerHeight; drift.style.transform=`translateX(${-160 - c*260}px)`; }
+    }
+  }
+  addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+  totop.addEventListener('click',()=>scrollTo({top:0,behavior:reduce?'auto':'smooth'}));
+  // cursor glow + magnetic buttons (pointer devices only)
+  if(matchMedia('(pointer:fine)').matches && !reduce){
+    const glow=document.getElementById('glow');
+    addEventListener('pointermove',e=>{ glow.style.opacity=1; glow.style.transform=`translate(${e.clientX-260}px,${e.clientY-260}px)`; },{passive:true});
+    addEventListener('pointerleave',()=>glow.style.opacity=0);
+    document.querySelectorAll('.magnet').forEach(b=>{
+      b.addEventListener('pointermove',e=>{ const r=b.getBoundingClientRect(); const x=(e.clientX-r.left-r.width/2)/r.width, y=(e.clientY-r.top-r.height/2)/r.height; b.style.transform=`translate(${x*10}px,${y*10}px)`; });
+      b.addEventListener('pointerleave',()=>b.style.transform='');
+    });
+  }
+  // reel player
+  const v=document.getElementById('reelvid'), p=document.getElementById('player'), btn=document.getElementById('playbtn');
+  btn.addEventListener('click',()=>{ v.muted=false; v.play(); });
+  v.addEventListener('play',()=>p.classList.add('playing'));
+  v.addEventListener('pause',()=>{ if(v.currentTime<v.duration) p.classList.remove('playing'); });
+  v.addEventListener('ended',()=>p.classList.remove('playing'));
+})();
+</script>
+
+</body>
+</html>
