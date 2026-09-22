@@ -88,10 +88,12 @@ section.block{padding-block:clamp(64px,9vw,140px);position:relative}
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden}
 .stat{background:var(--ink);padding:clamp(24px,3vw,40px);transition:background .25s}
 .stat:hover{background:var(--ink-2)}
-.stat .n{font-family:var(--display);font-size:clamp(56px,7vw,104px);line-height:1;color:var(--green);font-variant-numeric:tabular-nums}
-.stat .n small{font-size:.45em;color:var(--text);margin-left:6px}
-.stat p{color:var(--muted);margin-top:8px;max-width:30ch}
-.stat .n .word{font-size:.62em}
+.stat{display:flex;flex-direction:column;gap:6px}
+.stat .n{font-family:var(--display);font-size:clamp(56px,6.2vw,96px);line-height:.95;color:var(--green);font-variant-numeric:tabular-nums;white-space:nowrap;letter-spacing:.01em}
+.stat .n small{font-size:.5em;color:var(--text)}
+.stat .n .word{font-size:.62em;color:var(--green)}
+.stat .u{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--text);margin-top:2px}
+.stat p{color:var(--muted);margin-top:10px;max-width:30ch;font-size:16px;line-height:1.5}
 .group{margin-top:clamp(40px,6vw,80px)}
 .group:first-of-type{margin-top:0}
 .group-head{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.4fr);gap:clamp(18px,4vw,64px);align-items:end;margin-bottom:22px}
@@ -133,11 +135,11 @@ section.block{padding-block:clamp(64px,9vw,140px);position:relative}
 
 /* built cards */
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
-.card{background:var(--ink);color:var(--text);border:1px solid var(--line);border-radius:18px;padding:26px;min-height:220px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .3s;will-change:transform}
+.card{background:var(--ink);color:var(--text);border:1px solid var(--line);border-radius:18px;padding:28px;display:flex;flex-direction:column;align-items:flex-start;gap:0;transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .3s;will-change:transform}
 .card:hover{transform:translateY(-8px) rotate(-.6deg);border-color:var(--green)}
-.card h3{font-size:clamp(28px,2.6vw,40px);text-transform:none;letter-spacing:.01em}
-.card p{color:var(--muted);font-size:16px}
-.card .chip{align-self:flex-start;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;background:var(--green);color:var(--on-green);padding:6px 10px;border-radius:6px}
+.card h3{font-size:clamp(28px,2.4vw,38px);text-transform:none;letter-spacing:.01em;min-height:1.9em;display:flex;align-items:flex-end;margin-top:26px}
+.card p{color:var(--muted);font-size:16px;line-height:1.5;margin-top:14px}
+.card .chip{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;background:var(--green);color:var(--on-green);padding:6px 10px;border-radius:6px}
 
 /* closing */
 .close{text-align:left;position:relative;overflow:hidden}
@@ -214,10 +216,10 @@ footer a{color:var(--muted)}
         <p>A collision repair shop I ran end to end for nine years: estimating and production, the ICBC relationship, hiring and HR, the commercial lease, and the numbers. The team grew from 6 to 12 administrators and certified technicians, and I came up through the trade first: detailer, then certified collision, refinishing and glass technician, then estimator and production manager.</p>
       </div>
       <div class="stats">
-        <div class="stat"><div class="n"><span data-count="9">0</span><small>years</small></div><p>Running the shop, with a team that grew from 6 to 12.</p></div>
-        <div class="stat"><div class="n">+<span data-count="250">0</span><small>%</small></div><p>Annual sales, $800K to $2.9M over those nine years.</p></div>
-        <div class="stat"><div class="n"><span data-count="3">0</span><small>of 500</small></div><p>Where the shop ranked among BC collision facilities on ICBC KPI metrics in 2021.</p></div>
-        <div class="stat"><div class="n"><span data-count="750">0</span><small>jobs / yr</small></div><p>Work orders a year, ranging from $500 to $60,000 and averaging about $4,000.</p></div>
+        <div class="stat"><div class="n"><span data-count="9">0</span></div><div class="u">Years running the shop</div><p>With a team that grew from 6 to 12 administrators and certified technicians.</p></div>
+        <div class="stat"><div class="n">+<span data-count="250">0</span><small>%</small></div><div class="u">Sales growth</div><p>Annual sales from $800K to $2.9M over those nine years.</p></div>
+        <div class="stat"><div class="n"><span data-count="3">0</span><small>/500</small></div><div class="u">ICBC ranking, 2021</div><p>Where the shop placed among BC collision facilities on ICBC's KPI metrics.</p></div>
+        <div class="stat"><div class="n"><span data-count="750">0</span></div><div class="u">Work orders a year</div><p>From $500 to $60,000 each, averaging about $4,000.</p></div>
       </div>
     </div>
 
@@ -227,9 +229,9 @@ footer a{color:var(--muted)}
         <p>Building-envelope and building-science projects for strata corporations, run end to end. I wrote the scopes, budgets and schedules across concurrent projects, was the primary client contact, presented technical findings to strata councils, and sent leadership a weekly risk and roadblock report. It's where I learned how engineering firms actually deliver, and what their internal tools were missing.</p>
       </div>
       <div class="stats">
-        <div class="stat"><div class="n"><span data-count="6">0</span><small>months</small></div><p>Coordinating envelope projects from scoping through close-out.</p></div>
-        <div class="stat"><div class="n"><span class="word">Weekly</span></div><p>Risk and roadblock report to leadership, every project, every week.</p></div>
-        <div class="stat"><div class="n"><span class="word">Councils</span></div><p>Presented scopes, findings and budgets directly to strata councils as the primary client contact.</p></div>
+        <div class="stat"><div class="n"><span data-count="6">0</span></div><div class="u">Months on the team</div><p>Coordinating building-envelope projects from scoping through close-out.</p></div>
+        <div class="stat"><div class="n"><span class="word">Weekly</span></div><div class="u">Reports to leadership</div><p>A risk and roadblock report for every project, every week.</p></div>
+        <div class="stat"><div class="n"><span class="word">Councils</span></div><div class="u">Primary client contact</div><p>Presented scopes, findings and budgets directly to strata councils.</p></div>
       </div>
     </div>
 
@@ -239,10 +241,10 @@ footer a{color:var(--muted)}
         <p>Hired to start the depreciation-report division from zero: the service offering, pricing model and proposals, site-inspection protocols, component inventories and 30-year funding forecasts under the BC Strata Property Act. Then I built the tools that run it with Claude Code: the CRM, the quote pipeline, the report builder, and the accounting that sits underneath. Every report is reviewed by a P.Eng before it goes out.</p>
       </div>
       <div class="stats">
-        <div class="stat"><div class="n">~$<span data-count="100">0</span><small>K</small></div><p>First-year revenue for the new division, won through a targeted email campaign and LinkedIn prospecting.</p></div>
-        <div class="stat"><div class="n"><span data-count="407">0</span><small>components</small></div><p>In the report builder's building-component database behind every inventory and forecast.</p></div>
-        <div class="stat"><div class="n"><span data-count="865">0</span><small>/ 0</small></div><p>Drive file operations / failures when the quote pipeline moved into the CRM, tested on a copy first.</p></div>
-        <div class="stat"><div class="n"><span data-count="3">0</span><small>backups nightly</small></div><p>The CRM's database is copied to three separate places every night at 2 AM, each copy integrity-checked.</p></div>
+        <div class="stat"><div class="n">$<span data-count="100">0</span><small>K</small></div><div class="u">First-year revenue</div><p>Just under $100K for the new division, won through a targeted email campaign and LinkedIn prospecting.</p></div>
+        <div class="stat"><div class="n"><span data-count="407">0</span></div><div class="u">Building components</div><p>In the report builder's database behind every inventory and 30-year forecast.</p></div>
+        <div class="stat"><div class="n"><span data-count="865">0</span><small>/0</small></div><div class="u">Drive ops / failures</div><p>When the quote pipeline moved into the CRM, tested on a copy of the folder tree first.</p></div>
+        <div class="stat"><div class="n"><span data-count="3">0</span></div><div class="u">Nightly backups</div><p>The CRM's database is copied to three separate places every night at 2 AM, each copy integrity-checked.</p></div>
       </div>
     </div>
   </div>
@@ -356,10 +358,10 @@ footer a{color:var(--muted)}
   <div class="wrap">
     <div class="head rv"><span class="num">2026</span><h2>Built the tools that run a firm</h2></div>
     <div class="cards rv">
-      <article class="card"><span class="chip">CRM</span><div><h3>Rstruct CRM</h3><p>Opportunities, projects, Drive documents, Gmail and Calendar sync, accounting and payroll. On AWS, deployed from GitHub, backed up nightly to three places.</p></div></article>
-      <article class="card"><span class="chip">Pipeline</span><div><h3>Quote pipeline</h3><p>Parses quote PDFs, builds the Drive folder tree, keeps the status sheet in sync and archives completed jobs by invoice date. Migrated into the CRM with 865 ops, zero failures.</p></div></article>
-      <article class="card"><span class="chip">Reports</span><div><h3>Report builder</h3><p>Depreciation reports for BC strata corporations from a 407-component database, with funding scenarios. Every claim cited; reviewed by a P.Eng.</p></div></article>
-      <article class="card"><span class="chip">Dealership</span><div><h3>Service-advisor daily log</h3><p>Built for the OpenRoad VW service desk from their real Excel log and screens. AI intake turns pasted ERP text into structured jobs.</p></div></article>
+      <article class="card"><span class="chip">CRM</span><h3>Rstruct CRM</h3><p>Opportunities, projects, Drive documents, Gmail and Calendar sync, accounting and payroll. On AWS, deployed from GitHub, backed up nightly to three places.</p></article>
+      <article class="card"><span class="chip">Pipeline</span><h3>Quote pipeline</h3><p>Parses quote PDFs, builds the Drive folder tree, keeps the status sheet in sync and archives completed jobs by invoice date. Migrated into the CRM with 865 ops, zero failures.</p></article>
+      <article class="card"><span class="chip">Reports</span><h3>Report builder</h3><p>Depreciation reports for BC strata corporations from a 407-component database, with funding scenarios. Every claim cited; reviewed by a P.Eng.</p></article>
+      <article class="card"><span class="chip">Dealership</span><h3>Service-advisor daily log</h3><p>Built for the OpenRoad VW service desk from their real Excel log and screens. AI intake turns pasted ERP text into structured jobs.</p></article>
     </div>
     <p class="rv" style="margin-top:22px;color:var(--muted)">All of it with Claude Code and MCP. I set the requirements, make the calls and test the result.</p>
   </div>
