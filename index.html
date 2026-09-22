@@ -91,6 +91,13 @@ section.block{padding-block:clamp(64px,9vw,140px);position:relative}
 .stat .n{font-family:var(--display);font-size:clamp(56px,7vw,104px);line-height:1;color:var(--green);font-variant-numeric:tabular-nums}
 .stat .n small{font-size:.45em;color:var(--text);margin-left:6px}
 .stat p{color:var(--muted);margin-top:8px;max-width:30ch}
+.stat .n .word{font-size:.62em}
+.group{margin-top:clamp(40px,6vw,80px)}
+.group:first-of-type{margin-top:0}
+.group-head{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.4fr);gap:clamp(18px,4vw,64px);align-items:end;margin-bottom:22px}
+.group-head h3{font-size:clamp(34px,4.2vw,64px);margin-top:10px}
+.group-head p:not(.eyebrow){color:var(--muted);max-width:62ch;font-size:clamp(16px,1.25vw,19px)}
+@media (max-width:860px){.group-head{grid-template-columns:1fr}}
 
 /* reel */
 .reel{display:grid;grid-template-columns:1fr 1.35fr;gap:clamp(24px,4vw,64px);align-items:center}
@@ -201,11 +208,42 @@ footer a{color:var(--muted)}
 <section class="block" id="numbers">
   <div class="wrap">
     <div class="head rv"><span class="num">By the numbers</span><h2>What the last decade adds up to</h2></div>
-    <div class="stats rv">
-      <div class="stat"><div class="n"><span data-count="9">0</span><small>years</small></div><p>Running CARSTAR Vancouver, with a team that grew from 6 to 12.</p></div>
-      <div class="stat"><div class="n">+<span data-count="250">0</span><small>%</small></div><p>Annual sales, $800K to $2.9M over nine years.</p></div>
-      <div class="stat"><div class="n"><span data-count="3">0</span><small>of 500</small></div><p>Where the shop ranked among BC collision facilities on ICBC KPI metrics, 2021.</p></div>
-      <div class="stat"><div class="n"><span data-count="865">0</span><small>/ 0</small></div><p>Drive file operations / failures when we moved Rstruct's quote pipeline into the CRM, tested on a copy first.</p></div>
+    <div class="group rv">
+      <div class="group-head">
+        <div><p class="eyebrow">2016 – 2025 · General Manager</p><h3>CARSTAR Vancouver</h3></div>
+        <p>A collision repair shop I ran end to end for nine years: estimating and production, the ICBC relationship, hiring and HR, the commercial lease, and the numbers. The team grew from 6 to 12 administrators and certified technicians, and I came up through the trade first: detailer, then certified collision, refinishing and glass technician, then estimator and production manager.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="n"><span data-count="9">0</span><small>years</small></div><p>Running the shop, with a team that grew from 6 to 12.</p></div>
+        <div class="stat"><div class="n">+<span data-count="250">0</span><small>%</small></div><p>Annual sales, $800K to $2.9M over those nine years.</p></div>
+        <div class="stat"><div class="n"><span data-count="3">0</span><small>of 500</small></div><p>Where the shop ranked among BC collision facilities on ICBC KPI metrics in 2021.</p></div>
+        <div class="stat"><div class="n"><span data-count="750">0</span><small>jobs / yr</small></div><p>Work orders a year, ranging from $500 to $60,000 and averaging about $4,000.</p></div>
+      </div>
+    </div>
+
+    <div class="group rv">
+      <div class="group-head">
+        <div><p class="eyebrow">Aug 2025 – Feb 2026 · Project Coordinator</p><h3>Strata Engineering Inc.</h3></div>
+        <p>Building-envelope and building-science projects for strata corporations, run end to end. I wrote the scopes, budgets and schedules across concurrent projects, was the primary client contact, presented technical findings to strata councils, and sent leadership a weekly risk and roadblock report. It's where I learned how engineering firms actually deliver, and what their internal tools were missing.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="n"><span data-count="6">0</span><small>months</small></div><p>Coordinating envelope projects from scoping through close-out.</p></div>
+        <div class="stat"><div class="n"><span class="word">Weekly</span></div><p>Risk and roadblock report to leadership, every project, every week.</p></div>
+        <div class="stat"><div class="n"><span class="word">Councils</span></div><p>Presented scopes, findings and budgets directly to strata councils as the primary client contact.</p></div>
+      </div>
+    </div>
+
+    <div class="group rv">
+      <div class="group-head">
+        <div><p class="eyebrow">Mar 2026 – present · Project Manager, Depreciation Reports</p><h3>Rstruct Engineering</h3></div>
+        <p>Hired to start the depreciation-report division from zero: the service offering, pricing model and proposals, site-inspection protocols, component inventories and 30-year funding forecasts under the BC Strata Property Act. Then I built the tools that run it with Claude Code: the CRM, the quote pipeline, the report builder, and the accounting that sits underneath. Every report is reviewed by a P.Eng before it goes out.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="n">~$<span data-count="100">0</span><small>K</small></div><p>First-year revenue for the new division, won through a targeted email campaign and LinkedIn prospecting.</p></div>
+        <div class="stat"><div class="n"><span data-count="407">0</span><small>components</small></div><p>In the report builder's building-component database behind every inventory and forecast.</p></div>
+        <div class="stat"><div class="n"><span data-count="865">0</span><small>/ 0</small></div><p>Drive file operations / failures when the quote pipeline moved into the CRM, tested on a copy first.</p></div>
+        <div class="stat"><div class="n"><span data-count="3">0</span><small>backups nightly</small></div><p>The CRM's database is copied to three separate places every night at 2 AM, each copy integrity-checked.</p></div>
+      </div>
     </div>
   </div>
 </section>
