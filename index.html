@@ -117,7 +117,7 @@ section.block{padding-block:clamp(64px,9vw,140px);position:relative}
 .q h2{font-size:clamp(40px,5.6vw,88px)}
 .q .stick{position:sticky;top:calc(env(safe-area-inset-top,0px) + 88px)}
 .art{margin:28px 0 0;max-width:440px;aspect-ratio:4/3;border-radius:18px;border:1px solid var(--line);overflow:hidden;background:radial-gradient(circle at 28% 30%,rgba(61,220,151,.16),transparent 62%),var(--ink);box-shadow:0 24px 60px rgba(0,0,0,.35)}
-.art svg{width:100%;height:100%;display:block}
+.art svg,.art img{width:100%;height:100%;display:block;object-fit:cover}
 .art [stroke]{stroke:var(--green)}
 .art .dim{opacity:.35}
 .art .w{stroke:var(--text);opacity:.55}
@@ -298,15 +298,7 @@ footer a{color:var(--muted)}
 <section class="block on-ink2">
   <div class="wrap q">
     <div class="rv"><span class="num">Question 1 of 6</span><div class="stick"><h2>Three high-impact features, one release. How do I decide?</h2>
-      <figure class="art" aria-hidden="true"><svg viewBox="0 0 400 300" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-        <path class="dim" d="M40 150 C120 150 140 60 220 60 L330 60"/>
-        <path class="dim" d="M40 150 C120 150 140 240 220 240 L330 240"/>
-        <path class="lit" d="M40 150 L200 150 C260 150 280 150 330 150"/>
-        <circle cx="40" cy="150" r="7" class="fill"/>
-        <rect x="330" y="122" width="34" height="56" rx="4" class="pulse"/>
-        <rect x="340" y="132" width="14" height="36" rx="2" class="fill pulse"/>
-        <circle cx="330" cy="60" r="5" class="dim"/><circle cx="330" cy="240" r="5" class="dim"/>
-      </svg></figure></div></div>
+      <figure class="art"><img src="img/art-q1.jpg" alt="A single lit path leading to a doorway of light among darker branches" width="880" height="660" loading="lazy"></figure></div></div>
     <div class="answer rv">
       <p>I start with what happens if we don't ship each one: who is blocked, who is losing money, and who is only mildly inconvenienced. Something that unblocks other teams or stops a real loss usually beats something that is nice to have.</p>
       <p>Next I look at cost and risk. If two options are close, I take the one we can ship small, measure, and roll back if it's wrong.</p>
@@ -319,16 +311,7 @@ footer a{color:var(--muted)}
 <section class="block on-green">
   <div class="wrap q">
     <div class="rv"><span class="num">Question 2 of 6</span><div class="stick"><h2>Trust &amp; safety, fraud and abuse prevention</h2>
-      <figure class="art" aria-hidden="true"><svg viewBox="0 0 400 300" fill="none" stroke-width="3" stroke-linecap="round">
-        <circle cx="200" cy="150" r="118" class="dim"/>
-        <circle cx="200" cy="150" r="92" class="spin" stroke-dasharray="26 14"/>
-        <circle cx="200" cy="150" r="64" class="w"/>
-        <circle cx="200" cy="150" r="40" class="dim" stroke-dasharray="6 8"/>
-        <circle cx="200" cy="138" r="12" class="fill pulse"/>
-        <path d="M194 148 L206 148 L210 176 L190 176 Z" class="fill pulse"/>
-        <path class="w" d="M200 20 L214 30 L200 40 L186 30 Z"/>
-        <path class="w" d="M200 260 L214 270 L200 280 L186 270 Z"/>
-      </svg></figure></div></div>
+      <figure class="art"><img src="img/art-q2.jpg" alt="A vault door with a glowing mint-green keyhole" width="880" height="660" loading="lazy"></figure></div></div>
     <div class="answer rv">
       <p>Not in a dedicated trust &amp; safety or fraud role, so I won't pretend otherwise. The closest I've come is protecting client and financial data in the tools I run at Rstruct.</p>
       <p>Before our CRM went online I had it audited, and we fixed SQL injection, mass-assignment and email-escaping holes. I turned off public sign-up, switched to invite-only accounts with one-time set-password links, and restricted access by tab, enforced on the server, so staff can't reach payroll or SIN data. API keys can be entered but never read back. Backups run nightly to three separate places.</p>
@@ -341,14 +324,7 @@ footer a{color:var(--muted)}
 <section class="block">
   <div class="wrap q">
     <div class="rv"><span class="num">Question 3 of 6</span><div class="stick"><h2>How I use AI in my own product work</h2>
-      <figure class="art" aria-hidden="true"><svg viewBox="0 0 400 300" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-        <g class="dim" stroke-width="1"><path d="M0 60H400M0 120H400M0 180H400M0 240H400M60 0V300M120 0V300M180 0V300M240 0V300M300 0V300M360 0V300"/></g>
-        <path class="draw" d="M90 210 L90 120 L200 60 L310 120 L310 210 Z M150 210 L150 150 L200 125 L250 150 L250 210"/>
-        <path class="w" d="M40 250 C90 250 110 230 150 235"/>
-        <path class="lit" d="M250 235 C300 240 320 250 360 250"/>
-        <circle cx="310" cy="120" r="6" class="fill pulse"/>
-        <path class="w" d="M330 60 l10 -10 M340 60 l10 -10" stroke-width="2"/>
-      </svg></figure></div></div>
+      <figure class="art"><img src="img/art-q3.jpg" alt="A human hand and a robotic hand drawing the same blueprint" width="880" height="660" loading="lazy"></figure></div></div>
     <div class="answer rv">
       <p>Claude Code is my main tool. I've used it to build and run Rstruct's CRM (hosted on AWS, deployed from GitHub), our quote pipeline in Google Apps Script, a depreciation report builder, and a daily-log app for the service advisors at a VW dealership. I don't write the code by hand. I write the requirements, make the product calls, and test the results.</p>
       <p>The most useful thing I've learned is to give it rules the way you'd give a team acceptance criteria. After a change looked done but wasn't visible to users, I made it a rule that nothing is done until the result is checked where the user sees it. I also defined what a test means for our pipeline: a baseline snapshot, expected results written down first, then a diff.</p>
@@ -361,15 +337,7 @@ footer a{color:var(--muted)}
 <section class="block on-paper">
   <div class="wrap q">
     <div class="rv"><span class="num">Question 4 of 6</span><div class="stick"><h2>Working with platform and infrastructure teams</h2>
-      <figure class="art" aria-hidden="true"><svg viewBox="0 0 400 300" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
-        <path d="M80 250 L200 290 L320 250 L200 210 Z"/>
-        <path class="w" d="M100 185 L200 218 L300 185 L200 152 Z"/>
-        <path class="dim" d="M120 120 L200 146 L280 120 L200 94 Z"/>
-        <path class="lit" d="M200 218 L200 146 M200 290 L200 218"/>
-        <circle cx="200" cy="146" r="6" class="fill pulse"/><circle cx="200" cy="218" r="6" class="fill pulse"/><circle cx="200" cy="94" r="6" class="fill pulse"/>
-        <path class="dim" d="M80 250 L60 232 M320 250 L340 232 M100 185 L84 170 M300 185 L316 170"/>
-        <circle cx="150" cy="248" r="7" class="w"/><path class="w" d="M150 255 L150 272 M140 262 L160 262 M150 272 L143 284 M150 272 L157 284"/>
-      </svg></figure></div></div>
+      <figure class="art"><img src="img/art-q4.jpg" alt="Stacked glowing platforms with a small figure at the base" width="880" height="660" loading="lazy"></figure></div></div>
     <div class="answer rv">
       <p>Not with a dedicated platform team inside a large company. At Rstruct I've been the product owner for the internal platform the rest of the firm runs on.</p>
       <p>That's the CRM (opportunities, projects, documents in Google Drive, Gmail and Calendar sync, accounting and payroll) plus the tools plugged into it. Our engineer Melvin built the report generator and the financial model. We split each into its own private repo so it could be maintained independently, and wrote a contract document that defines how the CRM embeds them: hosting, the embed API, storage, and what triggers a sync. Each piece can change without breaking the others.</p>
@@ -381,13 +349,7 @@ footer a{color:var(--muted)}
 <section class="block on-ink2">
   <div class="wrap q">
     <div class="rv"><span class="num">Question 5 of 6</span><div class="stick"><h2>My product discovery process</h2>
-      <figure class="art" aria-hidden="true"><svg viewBox="0 0 400 300" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-        <g class="dim" stroke-width="2"><path d="M40 40 H360 V260 H40 Z M40 150 H200 M200 40 V260 M280 150 H360 M120 150 V260"/></g>
-        <path class="w" d="M60 200 h50 M60 220 h36 M230 70 h60 M230 90 h40" stroke-width="2"/>
-        <g class="pan"><circle cx="160" cy="110" r="46" stroke-width="4"/><path d="M194 144 L240 190" stroke-width="7"/><circle cx="160" cy="110" r="46" class="fill" opacity=".12"/></g>
-        <rect x="300" y="200" width="36" height="36" rx="4" class="pulse"/>
-        <circle cx="318" cy="218" r="5" class="fill pulse"/>
-      </svg></figure></div></div>
+      <figure class="art"><img src="img/art-q5.jpg" alt="A magnifying glass over a floor plan on a desk" width="880" height="660" loading="lazy"></figure></div></div>
     <div class="answer rv">
       <p>I haven't done formal user research inside a product org. My habit is to start from what people already use.</p>
       <p>When I built the daily-log app for the service advisors at the VW dealership where I worked, I started from their actual Excel log, screenshots of the dealership's system, and their process spreadsheets. Then we iterated in quick rounds of screenshots and fixes until it matched how the service desk really works.</p>
@@ -400,16 +362,7 @@ footer a{color:var(--muted)}
 <section class="block on-green">
   <div class="wrap q">
     <div class="rv"><span class="num">Question 6 of 6</span><div class="stick"><h2>Something that sparks joy</h2>
-      <figure class="art" aria-hidden="true"><svg viewBox="0 0 400 300" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-        <g class="fill"><circle class="twinkle" cx="60" cy="40" r="2"/><circle class="twinkle" cx="120" cy="70" r="1.5"/><circle class="twinkle" cx="200" cy="30" r="2"/><circle class="twinkle" cx="270" cy="60" r="1.5"/><circle class="twinkle" cx="340" cy="35" r="2"/><circle class="twinkle" cx="310" cy="95" r="1.5"/></g>
-        <circle cx="330" cy="70" r="16" class="w"/>
-        <path class="dim" d="M0 190 L70 120 L120 160 L190 90 L260 150 L330 110 L400 170"/>
-        <path class="w" d="M0 300 L170 190 L230 190 L400 300"/>
-        <path class="lit" d="M200 300 C205 260 210 230 214 195" stroke-width="5"/>
-        <path class="w" d="M200 300 L200 195" stroke-dasharray="10 12" stroke-width="2"/>
-        <circle cx="216" cy="192" r="6" class="fill pulse"/>
-        <ellipse cx="70" cy="262" rx="14" ry="5" class="fill"/><path class="w" d="M84 258 L120 236" stroke-width="4"/>
-      </svg></figure></div></div>
+      <figure class="art"><img src="img/art-q6.jpg" alt="A motorcycle on a night mountain road with a green light trail" width="880" height="660" loading="lazy"></figure></div></div>
     <div class="answer rv">
       <p>Motorcycles, hockey and cooking. I've ridden across North America on a motorcycle, I play ASHL league hockey, and I'm slowly working through the Red Seal carpentry textbooks for fun.</p>
       <p>The goal in the reel above is mine. Watch it with the sound on.</p>
